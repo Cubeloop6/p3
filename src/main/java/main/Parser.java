@@ -13,7 +13,7 @@ public class Parser {
      * @param adjMatrix Adjacency matrix
      * @return Adjacency list
      */
-    public static LinkedList<Integer>[] parse(int[][] adjMatrix) {
+    public static ArrayList<HashMap<Integer, Integer>> parse(int[][] adjMatrix) {
     //    int l = adjMatrix[0].length;
       //  ArrayList<ArrayList<Integer>> al = new ArrayList<>(l);
 
@@ -31,16 +31,16 @@ public class Parser {
         //}
 
         //return al;
-
+        int cost = 0;
         int l = adjMatrix[0].length;
-        LinkedList<Integer>[] al = new LinkedList[l];
+        ArrayList<HashMap<Integer, Integer>> al = new ArrayList<HashMap<Integer, Integer>>(l);
         for (int i=0; i<l; i++) {
-            al[i]=new LinkedList<Integer>();
+            al.add(i, new HashMap<Integer, Integer>());
         }
         for (int i = 0; i < l; i++) {
             for (int j = 0; j < adjMatrix.length; j++) {
-                if (adjMatrix[i][j] == 1) {
-                    al[i].add(j);
+                if (adjMatrix[i][j] != Integer.MAX_VALUE) {//!= 0 || adjMatrix[i][j] != Integer.MAX_VALUE) {//Integer.MAX_VALUE) {
+                    al.get(i).put(j, adjMatrix[i][j]);
                 }
             }
         }
@@ -73,10 +73,13 @@ public class Parser {
 
         int l = adjMatrix.length;
         LinkedList<Integer>[] al = (LinkedList<Integer>[]) new LinkedList[l];
+        for (int i=0; i<l; i++) {
+            al[i]=new LinkedList<Integer>();
+        }
         for (int i = 0; i < adjMatrix[0].length; i++) {
             for (int j = 0; j < l; j++) {
                 if (adjMatrix[i][j] == 1) {
-                    al[j].add(i);
+                    al[i].add(j);
                 }
             }
         }
