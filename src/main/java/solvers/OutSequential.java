@@ -58,7 +58,7 @@ public class OutSequential implements BellmanFordSolver {
 
         // Step 1: Initialize distances from src to all
         // other vertices as INFINITE
-        int size = 0;
+    //    int size = 0;
         for (int i = 0; i < len; ++i) {
             D1[i] = Integer.MAX_VALUE;
             D2[i] = Integer.MAX_VALUE;
@@ -73,7 +73,7 @@ public class OutSequential implements BellmanFordSolver {
         // have at-most |V| - 1 edges
 
             for (int i = 0; i < l; ++i) {
-                int ln = adjList.size();
+              //  int ln = adjList.size();
                 for (int k = 0; k < D1.length; k++) {
                     D2[k] = D1[k];
                 }
@@ -82,16 +82,10 @@ public class OutSequential implements BellmanFordSolver {
                 for (int j = 0; j < len; ++j) {
 
 
-                    int weight = 0;
+                    int weight;
 
                     for (int h = 0; h < len; h++) {
-              //          if(adjList.get(j) == null) {
-                //            break;
-                  //      }
 
-                    //    if(D2[j] == Integer.MAX_VALUE) {
-                      //      break;
-                        //}
 
                         if (adjList.get(j).containsKey(h) && adjList.get(j) != null && D2[j] != Integer.MAX_VALUE) {
                             weight = adjList.get(j).get(h);
@@ -110,7 +104,7 @@ public class OutSequential implements BellmanFordSolver {
         LinkedList<Integer> cycle = (LinkedList<Integer>) GraphUtil.getCycle(P);
 
             if (cycle.size() <= 1) {
-                return new ArrayList<Integer>();
+                return new ArrayList<>();
             }
 
             return cycle;
