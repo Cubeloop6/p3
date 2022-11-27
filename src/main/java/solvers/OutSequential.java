@@ -80,19 +80,20 @@ public class OutSequential implements BellmanFordSolver {
 
 
                 for (int j = 0; j < len; ++j) {
-                    if(adjList.get(j) == null) {
-                        continue;
-                    }
 
-                    if(D2[j] == Integer.MAX_VALUE) {
-                       continue;
-                    }
 
                     int weight = 0;
 
                     for (int h = 0; h < len; h++) {
+              //          if(adjList.get(j) == null) {
+                //            break;
+                  //      }
 
-                        if (adjList.get(j).containsKey(h)) {
+                    //    if(D2[j] == Integer.MAX_VALUE) {
+                      //      break;
+                        //}
+
+                        if (adjList.get(j).containsKey(h) && adjList.get(j) != null && D2[j] != Integer.MAX_VALUE) {
                             weight = adjList.get(j).get(h);
                             if (D1[h] > D2[j] + weight) {
                                 D1[h] = D2[j] + weight;
