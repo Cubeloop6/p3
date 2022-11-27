@@ -61,7 +61,7 @@ public class OutSequential implements BellmanFordSolver {
     //    int size = 0;
         for (int i = 0; i < len; ++i) {
             D1[i] = Integer.MAX_VALUE;
-            D2[i] = Integer.MAX_VALUE;
+       //     D2[i] = Integer.MAX_VALUE;
             P[i] = -1;
         }
       //  D1[source] = 0;
