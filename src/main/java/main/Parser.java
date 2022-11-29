@@ -55,7 +55,7 @@ public class Parser {
      * @param adjMatrix Adjacency matrix
      * @return Adjacency list with incoming edges
      */
-    public static Object parseInverse(int[][] adjMatrix) {
+    public static ArrayList<HashMap<Integer, Integer>> parseInverse(int[][] adjMatrix) {
   //      int len = adjMatrix[0].length;
     //    LinkedList[] link = new LinkedList[len];
 
@@ -70,7 +70,7 @@ public class Parser {
 
 
 //        return link;
-
+/*
         int l = adjMatrix.length;
         LinkedList<Integer>[] al = (LinkedList<Integer>[]) new LinkedList[l];
         for (int i=0; i<l; i++) {
@@ -83,6 +83,22 @@ public class Parser {
                 }
             }
         }
+*/
+        int cost = 0;
+        int l = adjMatrix[0].length;
+        ArrayList<HashMap<Integer, Integer>> al = new ArrayList<HashMap<Integer, Integer>>(l);
+        for (int i=0; i<l; i++) {
+            al.add(i, new HashMap<Integer, Integer>());
+        }
+        for (int i = 0; i < adjMatrix.length; i++) {
+            for (int j = 0; j < l; j++) {
+                if (adjMatrix[i][j] != Integer.MAX_VALUE) {//!= 0 || adjMatrix[i][j] != Integer.MAX_VALUE) {//Integer.MAX_VALUE) {
+                    al.get(j).put(i, -adjMatrix[i][j]);
+                }
+            }
+        }
+
+
 
         return al;
 

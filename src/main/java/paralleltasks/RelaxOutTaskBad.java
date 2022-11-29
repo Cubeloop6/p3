@@ -71,47 +71,9 @@ public class RelaxOutTaskBad extends RecursiveAction {
                       p[h] = lo;
                   }
               }
-/*
-                    for (int h = 0; h < len; h++) {
 
-
-                        if (adjList.get(j).containsKey(h) && adjList.get(j) != null && D2[j] != Integer.MAX_VALUE) {
-                            weight = adjList.get(j).get(h);
-                            if (D1[h] > D2[j] + weight) {
-                                D1[h] = D2[j] + weight;
-                                P[h] = j;
-                            }
-                        }
-
-                    }
-*/
-
-              //
-     //     }
       }
 
-
-        /*
-
-            int weight = 0;
-
-        for (int h = lo; h < hi; h++) {
-
-
-            if (adjList.get(lo).containsKey(h) && adjList.get(lo) != null && src[lo] != Integer.MAX_VALUE) {
-                weight = adjList.get(lo).get(h);
-                if (dst[h] > src[lo] + weight) {
-                    dst[h] = src[lo] + weight;
-                    p[h] = lo;
-                }
-            }
-
-        }
-
-
-        p[hi] = lo;
-
-         */
     }
 
     public static void parallel(int[] src, int[] dst, int[] p, ArrayList<HashMap<Integer, Integer>> adjList) {
