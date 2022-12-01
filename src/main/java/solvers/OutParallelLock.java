@@ -25,29 +25,15 @@ public class OutParallelLock implements BellmanFordSolver {
         int[] D2 = new int[l];
         int[] P = new int[l];
 
-
-
-        // Step 1: Initialize distances from src to all
-        // other vertices as INFINITE
-
         for (int i = 0; i < len; i++) {
             D1[i] = Integer.MAX_VALUE;
-            //     D2[i] = Integer.MAX_VALUE;
             P[i] = -1;
         }
-        //  D1[source] = 0;
         D1[source] = 0;
 
 
-
-        // Step 2: Relax all edges |V| - 1 times. A simple
-        // shortest path from src to any other vertex can
-        // have at-most |V| - 1 edges
-
         for (int i = 0; i < l; i++) {
-
             D2 = ArrayCopyTask.copy(D1);
-
             parallel(D2, D1, P, adjList);
 
         }

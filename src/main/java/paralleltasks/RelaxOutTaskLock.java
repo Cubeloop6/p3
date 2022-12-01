@@ -28,20 +28,13 @@ public class RelaxOutTaskLock extends RecursiveAction {
         this.hi = hi;
         this.adjList = adjList;
         this.p = p;
-
-
-
         this.lock = lock;
     }
 
     protected void compute() {
         if(hi - lo <= CUTOFF) {
-
                 sequential(src, dst,  p, lo, adjList, lock);
-
            return;
-
-            //         return new int[0];
         }
 
         int mid = lo + (hi - lo)/2;
@@ -56,31 +49,17 @@ public class RelaxOutTaskLock extends RecursiveAction {
         int weight = 0;
 
         for (int h = 0; h < adjList.size(); h++) {
-            //       boolean isLockAcquired = lock[lo][h].tryLock(1, TimeUnit.SECONDS);
-   //         try {
+
            lock[lo][h].lock();
-
-
                 if (adjList.get(lo).containsKey(h) && adjList.get(lo) != null && src[lo] != Integer.MAX_VALUE) {
                     weight = adjList.get(lo).get(h);
-
-
                     if (dst[h] > src[lo] + weight) {
-
-
                         dst[h] = src[lo] + weight;
-                     //   lock[lo][h].unlock();
                         p[h] = lo;
                     }
                 }
                    lock[lo][h].unlock();
                     }
-
-
-     //           }
-
-       //     } finally {
-
 
         }
 
