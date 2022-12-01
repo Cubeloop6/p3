@@ -56,10 +56,6 @@ public class OutParallelBad implements BellmanFordSolver {
             D2 = ArrayCopyTask.copy(D1);
 
 
-                ;
-
-
-
                     parallel(D2, D1, P, adjList);
 
         }
