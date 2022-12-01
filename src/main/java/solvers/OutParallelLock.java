@@ -25,8 +25,8 @@ public class OutParallelLock implements BellmanFordSolver {
         int[] D2 = new int[l];
         int[] P = new int[l];
 
-        RelaxOutTaskLock[] d1 = new RelaxOutTaskLock[l];
-        RelaxOutTaskLock[] d2 = new RelaxOutTaskLock[l];
+  //      RelaxOutTaskLock[] d1 = new RelaxOutTaskLock[l];
+    //    RelaxOutTaskLock[] d2 = new RelaxOutTaskLock[l];
         int[] p = new int[l];
 
 
