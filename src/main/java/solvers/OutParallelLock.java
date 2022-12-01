@@ -25,14 +25,11 @@ public class OutParallelLock implements BellmanFordSolver {
         int[] D2 = new int[l];
         int[] P = new int[l];
 
-  //      RelaxOutTaskLock[] d1 = new RelaxOutTaskLock[l];
-    //    RelaxOutTaskLock[] d2 = new RelaxOutTaskLock[l];
-        int[] p = new int[l];
 
 
         // Step 1: Initialize distances from src to all
         // other vertices as INFINITE
-        int size = 0;
+
         for (int i = 0; i < len; i++) {
             D1[i] = Integer.MAX_VALUE;
             //     D2[i] = Integer.MAX_VALUE;
@@ -49,34 +46,10 @@ public class OutParallelLock implements BellmanFordSolver {
 
         for (int i = 0; i < l; i++) {
 
-            //   for (int k = 0; k < D1.length; k++) {
-            //     D2[k] = D1[k];
-            //}
-
             D2 = ArrayCopyTask.copy(D1);
 
-
-            ;
-
-
-
             parallel(D2, D1, P, adjList);
-                    /*
-                for (int h = 0; h < len; h++) {
 
-                    if (adjList.get(j).containsKey(h)) {
-                        weight = adjList.get(j).get(h);
-                        if (D1[h] > D2[j] + weight) {
-                            D1[h] = D2[j] + weight;
-                            P[h] = j;
-                        }
-                    }
-
-                }
-
-            }
-
-*/
         }
 
 

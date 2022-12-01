@@ -61,22 +61,7 @@ public class OutParallelBad implements BellmanFordSolver {
 
 
                     parallel(D2, D1, P, adjList);
-                    /*
-                for (int h = 0; h < len; h++) {
 
-                    if (adjList.get(j).containsKey(h)) {
-                        weight = adjList.get(j).get(h);
-                        if (D1[h] > D2[j] + weight) {
-                            D1[h] = D2[j] + weight;
-                            P[h] = j;
-                        }
-                    }
-
-                }
-
-            }
-
-*/
         }
 
 
