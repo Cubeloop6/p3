@@ -25,9 +25,10 @@ public class OutParallelBad implements BellmanFordSolver {
         int l = adjMatrix.length;
         ArrayList<HashMap<Integer, Integer>> adjList = Parser.parse(adjMatrix);
         int len = adjList.size();
-        int[] D1 = new int[l];
-        int[] D2 = new int[l];
-        int[] P = new int[l];
+        int col = adjMatrix.length;
+        int[] D1 = new int[col];
+        int[] D2 = new int[col];
+        int[] P = new int[col];
 
 
         // Step 1: Initialize distances from src to all
@@ -46,7 +47,7 @@ public class OutParallelBad implements BellmanFordSolver {
         // shortest path from src to any other vertex can
         // have at-most |V| - 1 edges
 
-        for (int i = 0; i < l; i++) {
+        for (int i = 0; i < col; i++) {
 
          //   for (int k = 0; k < D1.length; k++) {
            //     D2[k] = D1[k];
