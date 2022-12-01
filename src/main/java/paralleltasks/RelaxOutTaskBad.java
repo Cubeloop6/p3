@@ -59,7 +59,7 @@ public class RelaxOutTaskBad extends RecursiveAction {
    //   for (int j = lo; j < hi; j++) {
 
 
-          int weight = 0;
+          int weight;
 
           for (int h = 0; h < adjList.size(); h++) {
 

@@ -33,7 +33,7 @@ public class OutParallelLock implements BellmanFordSolver {
         // Step 1: Initialize distances from src to all
         // other vertices as INFINITE
         int size = 0;
-        for (int i = 0; i < len; ++i) {
+        for (int i = 0; i < len; i++) {
             D1[i] = Integer.MAX_VALUE;
             //     D2[i] = Integer.MAX_VALUE;
             P[i] = -1;
@@ -47,7 +47,7 @@ public class OutParallelLock implements BellmanFordSolver {
         // shortest path from src to any other vertex can
         // have at-most |V| - 1 edges
 
-        for (int i = 0; i < l; ++i) {
+        for (int i = 0; i < l; i++) {
 
             //   for (int k = 0; k < D1.length; k++) {
             //     D2[k] = D1[k];
